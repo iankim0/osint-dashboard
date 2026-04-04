@@ -27,7 +27,7 @@ async def get_events(
         start = datetime.strptime(start_date, '%Y-%m-%d')
         query = query.filter(models.Event.event_date >= start)
     if end_date:
-        end = datetime.strptime(end_date, '%Y-%m-%d')
+        end = datetime.strptime(end_date, '%Y-%m-%d') 
         query = query.filter(models.Event.event_date <= end)
     events = query.all()
     return [
