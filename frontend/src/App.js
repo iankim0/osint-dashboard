@@ -22,7 +22,7 @@ function App() {
         if (filters.startDate) params.start_date = filters.startDate;
         if (filters.endDate) params.end_date = filters.endDate;
 
-        axios.get('http://localhost:8000/api/events', { params })
+        axios.get('https://osint-dashboard-9c5n.onrender.com', { params })
             .then(res => setEvents(res.data))
             .catch(err => console.error(err));
     }, [filters]);
