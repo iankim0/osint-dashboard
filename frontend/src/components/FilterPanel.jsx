@@ -60,7 +60,7 @@ export default function FilterPanel({ filters, onChange }) {
                     placeholder='e.g. Ukraine'
                 />
             </div>
-            {/* <div style={{ marginBottom: '12px' }}>
+            <div style={{ marginBottom: '12px' }}>
                 <label style={{ fontSize: '11px', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '1px' }}>Event Type</label>
                 <select
                     style={{ width: '100%', boxSizing: 'border-box', marginTop: '4px', padding: '8px 10px', backgroundColor: 'rgba(55,65,81,0.7)', border: '1px solid rgba(75,85,99,0.5)', borderRadius: '8px', color: 'white', fontSize: '13px', outline: 'none', cursor: 'pointer' }}
@@ -73,7 +73,7 @@ export default function FilterPanel({ filters, onChange }) {
                     <option>Riots</option>
                     <option>Violence against civilians</option>
                 </select>
-            </div> */}
+            </div>
             <div style={{ marginBottom: '12px' }}>
                 <label style={{ fontSize: '11px', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '1px' }}>Start Date</label>
                 <input type='date'
