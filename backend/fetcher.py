@@ -124,6 +124,18 @@ COUNTRY_COORDS = {
     'Laos': (19.8, 102.4),
 }
 
+def classify_event(title):
+    title_lower = title.lower()
+    if any(word in title_lower for word in ['protest', 'demonstrat', 'rally', 'march']):
+        return 'Protests'
+    if any(word in title_lower for word in ['riot', 'unrest', 'loot']):
+        return 'Riots'
+    if any(word in title_lower for word in ['battle', 'offensive', 'military', 'troops', 'airstrike', 'bomb']):
+        return 'Battles'
+    if any(word in title_lower for word in ['killed', 'murder', 'massacre', 'civilian', 'attack']):
+        return 'Violence against civilians'
+    return 'Other'
+
 async def fetch_gdelt_events(db, limit=250):
     params = {
         'query': '(conflict OR protest OR violence)',
@@ -153,7 +165,7 @@ async def fetch_gdelt_events(db, limit=250):
             latitude=lat,
             source_url=article.get('url'),
             mention_count=1, 
-            event_type='conflict',
+            event_type=classify_event(article.get('title', '')),
             event_date=datetime.strptime(article.get('seendate', ''), '%Y%m%dT%H%M%SZ') if article.get('seendate') else datetime.utcnow(),
             country=country,
         )
