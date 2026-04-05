@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 
 export default function FilterPanel({ filters, onChange }) {
-    const [position, setPosition] = useState({ x: 20, y: 20 });
+    const [position, setPosition] = useState({ x: 20, y: window.innerHeight - 400 });
     const [dragging, setDragging] = useState(false);
     const offset = useRef({ x: 0, y: 0 });
 
